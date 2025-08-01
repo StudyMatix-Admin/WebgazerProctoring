@@ -1,0 +1,119 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Calibration overlay */
+#calibrationScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 9999;
+}
+
+
+#calibrationUI {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.calib-box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.6);
+  border: 2px solid red;
+  pointer-events: auto;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+#calib-tl { top: 20px; left: 20px; }
+#calib-tr { top: 20px; right: 20px; }
+#calib-bl { bottom: 20px; left: 20px; }
+#calib-br { bottom: 20px; right: 20px; }
+
+/* Lives and Start Test */
+#livesContainer {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#startTest {
+  padding: 20px 40px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.center-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered test section */
+#testSection {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 640px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+/* Webcam in top right */
+#webcamPreview {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 300px;
+  height: 200px;
+  border: 2px solid #444;
+  z-index: 2;
+}
+
+/* Heatmap just below webcam */
+#heatmapCanvas {
+  position: fixed;
+  top: 220px;
+  right: 10px;
+  width: 300px;
+  height: 200px;
+  border: 2px solid red;
+  z-index: 1;
+}
+
+#overlay {
+  position: fixed;
+  top: 420px;
+  right: 10px;
+  width: 300px;
+  height: 200px;
+  border: 2px solid red;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#questions {
+  max-height: 60vh; /* or any suitable limit */
+  overflow-y: auto;
+}
+
+.disabled-style {
+  background-color: #ccc !important;
+  color: #666 !important;
+  border: 1px solid #999 !important;
+  cursor: not-allowed !important;
+  opacity: 0 !important; /* override default opacity reduction */
+}

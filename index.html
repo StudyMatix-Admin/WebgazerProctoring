@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calibration Test</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simpleheat@0.3.0/simpleheat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+<body>
+
+<!-- Fullscreen + Calibration -->
+<div id="calibrationScreen">
+  <h2 style="text-align:center;">Please enter fullscreen to begin</h2>
+  <div style="text-align:center; margin-top: 10px;">
+    <button id="fullscreenBtn">Go Fullscreen</button>
+  </div>
+
+  <div id="calibrationUI">
+    <p style="text-align:center;">Click all 4 red boxes</p>
+    <div class="calib-box" id="calib-tl"></div>
+    <div class="calib-box" id="calib-tr"></div>
+    <div class="calib-box" id="calib-bl"></div>
+    <div class="calib-box" id="calib-br"></div>
+  </div>
+</div>
+<div id="customAlert" style="
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 18px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+"></div>
+
+<!-- Test UI -->
+<h1 style="text-align:center;">Welcome to Secure Test</h1>
+<div id="livesContainer" style="text-align:center;">Lives: <span id="lives">20</span></div>
+
+<div class="center-controls">
+  <input id="testIndexInput" type="number" placeholder="Enter Test Index (optional)" style="margin-right: 10px; padding: 10px; font-size: 18px; width: 250px;">
+  <button id="startTest" disabled style="display:none;">Start Test</button>
+</div>
+
+<video id="webcamPreview" autoplay muted playsinline></video>
+<canvas id="heatmapCanvas" width="300" height="200"></canvas>
+<canvas id="overlay" width="300" height="200" style="border:1px solid #ccc;"></canvas>
+<div id="webgazerFeed" style="display:none;">
+  <canvas id="webgazerCanvas"></canvas>
+</div>  
+
+<!-- Centered test section -->
+<div id="testSection" style="display:none; max-height: 90vh; display: flex; flex-direction: column;">
+  <h2>Test Questions</h2>
+  <div id="questions" style="flex: 1; overflow-y: auto; margin-bottom: 10px;"></div>
+  <button id="submitBtn" style="align-self: center;">Submit</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

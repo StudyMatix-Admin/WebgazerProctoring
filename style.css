@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   font-family: Arial, sans-serif;
 }
 
@@ -62,14 +62,34 @@ html, body {
   align-items: center;
 }
 
+.option {
+  margin: 6px 0;
+  padding-left: 20px;         /* Add indentation */
+  font-size: 0.9rem;          /* Smaller font */
+  display: flex;              /* Use flex for alignment */
+  align-items: center;        /* Vertically align label and input */
+}
+
+.option-label {
+  display: inline-block;
+  font-weight: bold;
+  width: 25px;                /* Enough space for 'A)' etc. */
+}
+
+.question {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
 /* Centered test section */
 #testSection {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border: 1px solid #ccc;
-  width: 640px;
-  margin: 20px auto;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  /* Make the container fill the entire viewport height */
+  height: 80vh;
+  padding: 30px;
+  box-sizing: border-box; /* Ensures padding is included in the height */
 }
 
 /* Webcam in top right */
@@ -117,3 +137,18 @@ html, body {
   cursor: not-allowed !important;
   opacity: 0 !important; /* override default opacity reduction */
 }
+
+#submitBtn {
+  padding: 12px 56px;
+  font-size: 18px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+}
+#submitBtn:hover {
+  background-color: #388e3c;
+}
+

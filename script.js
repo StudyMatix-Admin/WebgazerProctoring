@@ -181,7 +181,7 @@ document.getElementById('startTest').addEventListener('click', async () => {
   const testIndex = indexInput ? parseInt(indexInput) : null;
   console.log("Test index:", testIndex);
   showCustomAlert("Test starting now. Stay focused on the screen.");
-  testSection.style.display = 'block';
+  testSection.style.display = 'flex';
 
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -262,7 +262,10 @@ fetch(url)
         : '';
 
       const optionsHTML = Object.entries(q.options).map(([key, value]) =>
-        `<label><input type="radio" name="q${index}" value="${key}"/> ${key}: ${value}</label><br>`
+        `<div class="option">
+          <span class="option-label">${key})</span>
+          <label><input type="radio" name="q${index}" value="${key}"/> ${value}</label>
+        </div>`
       ).join('');
 
       div.innerHTML = `

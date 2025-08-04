@@ -89,6 +89,8 @@ html, body {
   /* Make the container fill the entire viewport height */
   height: 80vh;
   padding: 30px;
+  padding-right: 350px; /* Adds room for webcam and heatmap */
+  padding-left: 30px;    /* Optional left padding */
   box-sizing: border-box; /* Ensures padding is included in the height */
 }
 
